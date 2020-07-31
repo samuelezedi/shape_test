@@ -30,6 +30,7 @@ class _CustomShaperState extends State<CustomShaper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Container(
+      margin: EdgeInsets.symmetric(horizontal: 30),
       child: Center(
         child: ClipPath(
           clipper: MyClipper(),
@@ -47,9 +48,16 @@ class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
+//    path.lineTo(0.0, size.height);
+//    path.lineTo(size.width, size.height/2);
+//    path.lineTo(size.width,0.0);
+
+    path.quadraticBezierTo(size.width * 0.55, size.height * 0.875,
+        size.width * 0.25, size.width * 0.75);
+    path.moveTo(0, size.height * 0.80);
     path.lineTo(0.0, size.height);
-    path.lineTo(size.width, size.height/2);
-    path.lineTo(size.width,0.0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, size.height * 0.80);
     path.close();
     return path;
   }
