@@ -29,22 +29,27 @@ class CustomShaper extends StatefulWidget {
 class _CustomShaperState extends State<CustomShaper> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ClipPath(
-        clipper: MyClipper(),
-        child: Container(
-          height: 200,
-          color: Colors.black,
+    return Scaffold(body: Container(
+      child: Center(
+        child: ClipPath(
+          clipper: MyClipper(),
+          child: Container(
+            height: 200,
+            color: Colors.black,
+          ),
         ),
       ),
-    );
+    ));
   }
 }
 
 class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-
+    var path = Path();
+    path.lineTo(0.0, size.height);
+    path.lineTo(size.width, size.height/2);
+    path.lineTo(si, y)
   }
 
   @override
